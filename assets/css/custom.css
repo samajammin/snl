@@ -1,0 +1,147 @@
+
+.navbar-custom {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+    text-transform: uppercase;
+    font-family: 'Roboto Slab', sans-serif;
+    background-color: #3C4650;
+}
+
+.navbar-custom .fa-bars{
+    color: #fff;
+}
+
+.navbar-custom .navbar-brand {
+    font-weight: 700;
+}
+
+.navbar-custom .navbar-brand:focus {
+    outline: 0;
+}
+
+.navbar-custom .navbar-brand .navbar-toggle {
+    padding: 4px 6px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.navbar-custom .navbar-brand:hover {
+    outline: 0;
+    /*color: rgba(255,255,255,.8);*/
+    color: rgba(150,119,98, .9);
+    background-color: transparent;
+}
+
+.navbar-custom .navbar-brand .navbar-toggle:focus,
+.navbar-custom .navbar-brand .navbar-toggle:active {
+    outline: 0;
+}
+
+.navbar-custom a {
+    color: #fff;
+    /*color: gray;*/
+}
+
+.navbar-custom .nav li a {
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.navbar-custom .nav li a:hover {
+    outline: 0;
+    /*color: rgba(255,255,255,.8);*/
+    color: rgba(150,119,98, .9);
+    background-color: transparent;
+}
+
+.navbar-custom .nav li a:focus,
+.navbar-custom .nav li a:active {
+    outline: 0;
+    background-color: transparent;
+}
+
+.navbar-custom .nav li.active {
+    outline: 0;
+}
+
+.navbar-custom .nav li.active a {
+    background-color: rgba(255,255,255,.3);
+}
+
+.navbar-custom .nav li.active a:hover {
+    color: #fff;
+}
+
+#team-row {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#arrow-head-row {
+    margin-bottom: 30px;
+}
+
+#attorneys {
+    margin-bottom: 30px;
+}
+
+.icon:hover {
+	background: #967762;
+}
+
+.text-primary {
+  color: #242830;
+}
+
+button.learn-more-btn {
+    margin-top: 10px;
+}
+
+span.roman {
+    color: #ffffff;
+    font-weight: bold;
+    z-index: 2;
+    font-size: 28px;
+}
+
+i.roman {
+    z-index: -2;
+}
+
+div.roman {
+    margin-bottom: 20px;
+}
+
+/*his colors:
+
+Green: #3DC9B3
+box shadow #309383
+input button rgba(61, 201, 179, 0.5)
+hero button:
+rgba(61, 201, 179, 1)
+
+rgba(61, 201, 179, 0.8)
+
+Dark: #242830
+rgba(61, 201, 179, 1)
+
+paragraph gray
+#8c9398
+
+
+
+OUR COLORS
+p gray
+#717880
+Dark:
+#3C4650
+rgb(60,70,80)
+rgba(60,70,80,1)
+Brown:
+#967762
+Brown RGB:
+rgb(150,119,98)
+rgba(150,119,98, 1)
+button 3d shadow: #785f4e
+*/

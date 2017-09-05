@@ -1,0 +1,99 @@
+.features .fa {
+    text-align: center;
+}
+
+.cta-box {
+	background:#eee;
+	overflow:hidden;
+	margin-bottom:30px;
+}
+
+.cta-text {
+	float:left;
+	padding: 30px 20px 20px 20px;
+}
+
+.cta-text h2 {
+	font-weight:700;
+	letter-spacing:-2px;
+	font-size:36px;
+}
+.cta-box .cta {
+	float:right;
+	padding: 30px 20px 20px 20px;
+}
+
+body {
+	background-color: #ffffff;
+}
+
+/*h3, .h3 {*/
+	/*font-size: 24px;*/
+	/*color: #EEEEEE;*/
+/*}*/
+
+.panel-default > .panel-heading {
+	background-color: #4F6E91;
+    color: #EEEEEE;
+}
+
+
+/*todo jumbotron editing*/
+.jumbotron {
+	background-size: cover;
+	background-image: url("../img/South_Natick_Law_home.png");
+	/*background-image: url("../img/library.jpg");*/
+}
+
+.jumbotron p{
+	color: #ffffff;
+}
+
+.jumbotron h1{
+	color: #ffffff;
+}
+
+#jumbo-box {
+    /*background-color: black;*/
+}
+
+.footer.well {
+background-color: #4F6E91;
+color: #EEEEEE;
+}
+
+.footer.well a {
+/*color: #eeeeee;*/
+/*color: #F2EB81;*/
+/*color: #F0EED2;*/
+color: #FFE9A6;
+    /*color: #EBCA95;*/
+}
+
+nav a {
+color: #eeeeee;
+}
+/*nav {*/
+/*background-color: #4F6E91;*/
+/*color: #eeeeee;*/
+/*}*/
+
+.navbar-default .navbar-brand {
+color: #eeeeee;
+}
+
+.navbar-default {
+background-color: #4F6E91;
+border-color: #e7e7e7;
+}
+
+#tint {
+      background-color: rgba(0,0,0,0.4);
+}
+
+/*palettes*/
+/*http://www.colourlovers.com/palette/3659652/stal*/
+/*http://www.colourlovers.com/palette/3659668/0220*/
+/*https://dribbble.com/shots/1665779-Goldsman-Law-Logo-Concept?list=searches&tag=law&offset=10*/
+/*https://dribbble.com/shots/149040-Stone-Law-Group?list=searches&tag=law&offset=49*/
+/*https://dribbble.com/shots/529900-Themis-Law?list=searches&tag=law&offset=95*/
