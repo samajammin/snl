@@ -1,16 +1,41 @@
 {{!< default}}
-
 <section class="section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h2 class="arrow">Contact South Natick Law</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-offset-1 col-sm-10 text-center">
-                <p>Have a question? Schedule a consultation with one of <a href="/about">our professional attorneys</a>. <br> We're happy to discuss the legal issues and available options in your case.</p>
-            </div>
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h2 class="arrow">Contact South Natick Law</h2>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <p>
+              Have a question? We're happy to discuss the legal issues and available options in your case.
+              <br>
+              Call us today or fill out the form below to connect directly with one of <a href="/about">our professional attorneys</a>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-offset-2 col-sm-8">
+        <form action="https://formspree.io/sbrichards@gmail.com" method="POST">
+          <div class="row">
+            <div class="form-group col-sm-12">
+              <label for="nameInput">Name</label>
+              <input type="text" name="name" class="form-control" id="nameInput" placeholder="Your name...">
+            </div>
+            <div class="form-group col-sm-12">
+              <label for="emailInput">Email address</label>
+              <input type="email" name="_replyto" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Your email...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="detailsInput">Message</label>
+            <textarea name="message" rows="8" cols="80" class="form-control" placeholder="Anything else you'd like us to know..."></textarea>
+          </div>
+          <input type="hidden" name="_next" value="//southnaticklaw.com/thanks" />
+          <button type="submit" class="learn-more-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>
