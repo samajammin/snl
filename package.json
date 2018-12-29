@@ -6,7 +6,11 @@
     "ghost": ">=1.0.0"
   },
   "license": "MIT",
+  "keywords": [
+    "ghost-theme"
+  ],
   "author": {
+    "name": "Sam Richards",
     "email": "sbrichards@gmail.com"
   },
   "config": {
