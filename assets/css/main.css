@@ -1,77 +1,75 @@
 .features .fa {
-    text-align: center;
+  text-align: center;
 }
 
 .cta-box {
-	background:#eee;
-	overflow:hidden;
-	margin-bottom:30px;
+  background: #eee;
+  overflow: hidden;
+  margin-bottom: 30px;
 }
 
 .cta-text {
-	float:left;
-	padding: 30px 20px 20px 20px;
+  float: left;
+  padding: 30px 20px 20px 20px;
 }
 
 .cta-text h2 {
-	font-weight:700;
-	letter-spacing:-2px;
-	font-size:36px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  font-size: 36px;
 }
 .cta-box .cta {
-	float:right;
-	padding: 30px 20px 20px 20px;
+  float: right;
+  padding: 30px 20px 20px 20px;
 }
 
 body {
-	background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 /*h3, .h3 {*/
-	/*font-size: 24px;*/
-	/*color: #EEEEEE;*/
+/*font-size: 24px;*/
+/*color: #EEEEEE;*/
 /*}*/
 
 .panel-default > .panel-heading {
-	background-color: #4F6E91;
-    color: #EEEEEE;
+  background-color: #4f6e91;
+  color: #eeeeee;
 }
-
 
 /*todo jumbotron editing*/
 .jumbotron {
-	background-size: cover;
-	background-image: url("../img/South_Natick_Law_home.png");
-	/*background-image: url("../img/library.jpg");*/
+  background-size: cover;
+  background-image: url('../img/South_Natick_Law_home.jpg');
 }
 
-.jumbotron p{
-	color: #ffffff;
+.jumbotron p {
+  color: #ffffff;
 }
 
-.jumbotron h1{
-	color: #ffffff;
+.jumbotron h1 {
+  color: #ffffff;
 }
 
 #jumbo-box {
-    /*background-color: black;*/
+  /*background-color: black;*/
 }
 
 .footer.well {
-background-color: #4F6E91;
-color: #EEEEEE;
+  background-color: #4f6e91;
+  color: #eeeeee;
 }
 
 .footer.well a {
-/*color: #eeeeee;*/
-/*color: #F2EB81;*/
-/*color: #F0EED2;*/
-color: #FFE9A6;
-    /*color: #EBCA95;*/
+  /*color: #eeeeee;*/
+  /*color: #F2EB81;*/
+  /*color: #F0EED2;*/
+  color: #ffe9a6;
+  /*color: #EBCA95;*/
 }
 
 nav a {
-color: #eeeeee;
+  color: #eeeeee;
 }
 /*nav {*/
 /*background-color: #4F6E91;*/
@@ -79,16 +77,16 @@ color: #eeeeee;
 /*}*/
 
 .navbar-default .navbar-brand {
-color: #eeeeee;
+  color: #eeeeee;
 }
 
 .navbar-default {
-background-color: #4F6E91;
-border-color: #e7e7e7;
+  background-color: #4f6e91;
+  border-color: #e7e7e7;
 }
 
 #tint {
-      background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 /*palettes*/
