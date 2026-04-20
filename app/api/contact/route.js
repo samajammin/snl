@@ -11,7 +11,7 @@ export async function POST(request) {
 
   try {
     await resend.emails.send({
-      from: "South Natick Law <onboarding@resend.dev>",
+      from: "South Natick Law <website@southnaticklaw.com>",
       to: [
         "info@southnaticklaw.com",
         "grichards@southnaticklaw.com",
