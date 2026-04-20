@@ -1,33 +1,43 @@
-# SNL Ghost Theme
+# South Natick Law
 
-Responsive Ghost theme for [southnaticklaw.com](https://www.southnaticklaw.com)
+Website for [southnaticklaw.com](https://www.southnaticklaw.com) — a Next.js App Router site deployed on Vercel.
+
+## Stack
+
+- Next.js 16 (App Router)
+- React 19
+- Resend for contact form email delivery
+- Deployed on Vercel
 
 ## Local development
 
-1. Create a Directory:
+Copy the example env file and add your Resend API key:
 
 ```bash
-mkdir south-natick-law && cd south-natick-law
+cp .env.example .env.local
 ```
 
-2. Download ghost
+Install dependencies:
 
 ```bash
-npm install -g ghost-cli@latest
+npm install
 ```
 
-3. Symlink this theme
+Start the dev server:
 
 ```bash
-cd content/themes
+npm run dev
 ```
 
-```bash
-ln -s path/to/this/theme/snl .
-```
+## Project structure
 
-4. Start Ghost
+- `app/` — routes (one directory per public URL)
+- `components/` — shared UI: Navbar, FooterContact, Cta, AttorneyProfile
+- `lib/site-data.js` — all site content: attorney bios, practice areas, page copy
+- `public/assets/` — static CSS, JS, images, and fonts
 
-```bash
-ghost start
-```
+## Environment variables
+
+| Variable | Description |
+|---|---|
+| `RESEND_API_KEY` | API key from resend.com for contact form delivery |
