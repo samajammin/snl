@@ -14,11 +14,6 @@ const socialLinks = [
     iconClass: "fa-yelp",
     label: "Yelp",
   },
-  {
-    href: "https://plus.google.com/109804537626517034946/about?hl=en",
-    iconClass: "fa-google-plus",
-    label: "Google Plus",
-  },
 ];
 
 export default function FooterContact() {
@@ -94,7 +89,7 @@ export default function FooterContact() {
             <div className="col-md-4"></div>
             <div className="col-md-8 credit">
               <p>
-                Copyright &copy; 2019 Richards, Biller, Schindel, Winter &amp;
+                Copyright &copy; 2026 Richards, Biller, Schindel, Winter &amp;
                 Mulcahy, LLP. All Rights Reserved.
               </p>
             </div>
