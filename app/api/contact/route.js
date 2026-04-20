@@ -12,7 +12,14 @@ export async function POST(request) {
   try {
     await resend.emails.send({
       from: "South Natick Law <onboarding@resend.dev>",
-      to: "sbrichards@gmail.com",
+      to: [
+        "info@southnaticklaw.com",
+        "grichards@southnaticklaw.com",
+        "rbiller@southnaticklaw.com",
+        "cschindel@southnaticklaw.com",
+        "kwinter@southnaticklaw.com",
+      ],
+      cc: ["sbrichards@gmail.com"],
       replyTo,
       subject: `Contact form: ${name}`,
       text: `Name: ${name}\nEmail: ${replyTo}\n\n${message}`,
