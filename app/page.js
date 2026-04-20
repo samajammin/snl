@@ -31,7 +31,7 @@ export default function HomePage() {
                 </a>
               </div>
               <div className="col-md-3 text-center">
-                <a href="#contact" className="learn-more-btn">
+                <a href="/contact" className="learn-more-btn">
                   Get in Touch
                 </a>
               </div>
