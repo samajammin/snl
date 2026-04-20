@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 import FooterContact from "../components/FooterContact";
 import Navbar from "../components/Navbar";
@@ -60,6 +61,7 @@ export default function RootLayout({ children }) {
           strategy="afterInteractive"
         />
         <Script src="/assets/js/modernizr.js" strategy="afterInteractive" />
+        <Analytics />
       </body>
     </html>
   );
