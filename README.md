@@ -1,15 +1,21 @@
 # South Natick Law
 
-Next.js App Router migration of [southnaticklaw.com](https://www.southnaticklaw.com), preserving the existing public routes, styling, and assets while removing the site from Ghost hosting.
+Website for [southnaticklaw.com](https://www.southnaticklaw.com) — a Next.js App Router site deployed on Vercel.
 
 ## Stack
 
-- Next.js 16
+- Next.js 16 (App Router)
 - React 19
-- Vercel-ready App Router project
-- Legacy CSS, images, and jQuery behaviors preserved for parity under `public/assets/`
+- Resend for contact form email delivery
+- Deployed on Vercel
 
 ## Local development
+
+Copy the example env file and add your Resend API key:
+
+```bash
+cp .env.example .env.local
+```
 
 Install dependencies:
 
@@ -23,27 +29,15 @@ Start the dev server:
 npm run dev
 ```
 
-Create a production build:
-
-```bash
-npm run build
-```
-
-Start the production server locally:
-
-```bash
-npm run start
-```
-
 ## Project structure
 
-- `app/` contains the Next.js routes.
-- `components/` contains shared UI like the navbar, CTA, footer contact section, and attorney profile shell.
-- `lib/site-data.js` contains the structured site content and uses the existing attorney `.txt` files as the bio source.
-- `public/assets/` contains the migrated static assets from the original Ghost theme.
+- `app/` — routes (one directory per public URL)
+- `components/` — shared UI: Navbar, FooterContact, Cta, AttorneyProfile
+- `lib/site-data.js` — all site content: attorney bios, practice areas, page copy
+- `public/assets/` — static CSS, JS, images, and fonts
 
-## Notes
+## Environment variables
 
-- The old Ghost theme files remain in the repo as migration reference material.
-- `MIGRATION_PLAN.md` documents the migration strategy.
-- `LIVE_SITE_CONTENT_MAP.md` records which public pages supplied the Ghost-managed content during the migration.
+| Variable | Description |
+|---|---|
+| `RESEND_API_KEY` | API key from resend.com for contact form delivery |
