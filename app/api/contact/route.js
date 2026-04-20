@@ -22,7 +22,7 @@ export async function POST(request) {
       cc: ["sbrichards@gmail.com"],
       replyTo,
       subject: `Contact form: ${name}`,
-      text: `Name: ${name}\nEmail: ${replyTo}\n\n${message}`,
+      text: `${name} submitted the contact form at southnaticklaw.com and is requesting assistance.\n\nName: ${name}\nEmail: ${replyTo}\n\nMessage:\n${message}\n\nYou can reply directly to this email to respond to ${name}.`,
     });
 
     return NextResponse.redirect(new URL("/thanks", request.url), 303);
