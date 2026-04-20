@@ -1,30 +1,22 @@
+import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/sbrichards@gmail.com";
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
-  const requestFormData = await request.formData();
-  const name = String(requestFormData.get("name") || "").trim();
-  const replyTo = String(requestFormData.get("_replyto") || "").trim();
-  const message = String(requestFormData.get("message") || "").trim();
-
-  const forwardedFormData = new FormData();
-  forwardedFormData.set("name", name);
-  forwardedFormData.set("_replyto", replyTo);
-  forwardedFormData.set("message", message);
+  const formData = await request.formData();
+  const name = String(formData.get("name") || "").trim();
+  const replyTo = String(formData.get("_replyto") || "").trim();
+  const message = String(formData.get("message") || "").trim();
 
   try {
-    const response = await fetch(FORMSPREE_ENDPOINT, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-      },
-      body: forwardedFormData,
+    await resend.emails.send({
+      from: "South Natick Law <onboarding@resend.dev>",
+      to: "sbrichards@gmail.com",
+      replyTo,
+      subject: `Contact form: ${name}`,
+      text: `Name: ${name}\nEmail: ${replyTo}\n\n${message}`,
     });
-
-    if (!response.ok) {
-      return NextResponse.redirect(new URL("/contact?error=1", request.url), 303);
-    }
 
     return NextResponse.redirect(new URL("/thanks", request.url), 303);
   } catch {
