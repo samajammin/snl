@@ -1,33 +1,49 @@
-# SNL Ghost Theme
+# South Natick Law
 
-Responsive Ghost theme for [southnaticklaw.com](https://www.southnaticklaw.com)
+Next.js App Router migration of [southnaticklaw.com](https://www.southnaticklaw.com), preserving the existing public routes, styling, and assets while removing the site from Ghost hosting.
+
+## Stack
+
+- Next.js 16
+- React 19
+- Vercel-ready App Router project
+- Legacy CSS, images, and jQuery behaviors preserved for parity under `public/assets/`
 
 ## Local development
 
-1. Create a Directory:
+Install dependencies:
 
 ```bash
-mkdir south-natick-law && cd south-natick-law
+npm install
 ```
 
-2. Download ghost
+Start the dev server:
 
 ```bash
-npm install -g ghost-cli@latest
+npm run dev
 ```
 
-3. Symlink this theme
+Create a production build:
 
 ```bash
-cd content/themes
+npm run build
 ```
+
+Start the production server locally:
 
 ```bash
-ln -s path/to/this/theme/snl .
+npm run start
 ```
 
-4. Start Ghost
+## Project structure
 
-```bash
-ghost start
-```
+- `app/` contains the Next.js routes.
+- `components/` contains shared UI like the navbar, CTA, footer contact section, and attorney profile shell.
+- `lib/site-data.js` contains the structured site content and uses the existing attorney `.txt` files as the bio source.
+- `public/assets/` contains the migrated static assets from the original Ghost theme.
+
+## Notes
+
+- The old Ghost theme files remain in the repo as migration reference material.
+- `MIGRATION_PLAN.md` documents the migration strategy.
+- `LIVE_SITE_CONTENT_MAP.md` records which public pages supplied the Ghost-managed content during the migration.
