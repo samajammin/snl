@@ -1,5 +1,13 @@
 export const metadata = {
   title: "Contact | South Natick Law",
+  description:
+    "Contact South Natick Law to schedule a consultation. Call us or submit a message to connect with one of our experienced MetroWest attorneys.",
+  openGraph: {
+    title: "Contact | South Natick Law",
+    description:
+      "Contact South Natick Law to schedule a consultation. Call us or submit a message to connect with one of our experienced MetroWest attorneys.",
+    url: "https://southnaticklaw.com/contact",
+  },
 };
 
 export default async function ContactPage({ searchParams }) {

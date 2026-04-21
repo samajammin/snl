@@ -1,5 +1,6 @@
 export const metadata = {
   title: "Thanks | South Natick Law",
+  robots: { index: false, follow: false },
 };
 
 export default function ThanksPage() {

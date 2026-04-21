@@ -9,8 +9,30 @@ const siteDescription =
   "South Natick Law provides experienced legal counsel in real estate, estate planning, probate, domestic relations, employment law, elder law, and health care law.";
 
 export const metadata = {
+  metadataBase: new URL("https://southnaticklaw.com"),
   title: siteTitle,
   description: siteDescription,
+  openGraph: {
+    type: "website",
+    siteName: "South Natick Law",
+    title: siteTitle,
+    description: siteDescription,
+    url: "https://southnaticklaw.com",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/assets/img/favicon.ico",
+    shortcut: "/assets/img/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {

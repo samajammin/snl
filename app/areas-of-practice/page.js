@@ -1,6 +1,18 @@
 import Cta from "../../components/Cta";
 import { practiceAreasPage } from "../../lib/site-data";
 
+export const metadata = {
+  title: "Areas of Practice | South Natick Law",
+  description:
+    "South Natick Law handles elder law, probate, bankruptcy, real estate, domestic relations, employment law, civil litigation, estate administration, and health care law in MetroWest MA.",
+  openGraph: {
+    title: "Areas of Practice | South Natick Law",
+    description:
+      "South Natick Law handles elder law, probate, bankruptcy, real estate, domestic relations, employment law, civil litigation, estate administration, and health care law in MetroWest MA.",
+    url: "https://southnaticklaw.com/areas-of-practice",
+  },
+};
+
 export default function AreasOfPracticePage() {
   return (
     <>

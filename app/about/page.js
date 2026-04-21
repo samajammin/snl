@@ -1,6 +1,18 @@
 import Cta from "../../components/Cta";
 import { aboutPage, aboutTeamCards } from "../../lib/site-data";
 
+export const metadata = {
+  title: "About | South Natick Law",
+  description:
+    "Meet the attorneys at South Natick Law — experienced legal professionals serving MetroWest Massachusetts with expertise in real estate, estate planning, domestic relations, elder law, and more.",
+  openGraph: {
+    title: "About | South Natick Law",
+    description:
+      "Meet the attorneys at South Natick Law — experienced legal professionals serving MetroWest Massachusetts with expertise in real estate, estate planning, domestic relations, elder law, and more.",
+    url: "https://southnaticklaw.com/about",
+  },
+};
+
 export default function AboutPage() {
   return (
     <>

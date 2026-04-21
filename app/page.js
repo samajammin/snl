@@ -5,9 +5,38 @@ import {
   homeValues,
 } from "../lib/site-data";
 
+export const metadata = {
+  openGraph: {
+    url: "https://southnaticklaw.com",
+  },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  name: "South Natick Law",
+  alternateName: "Richards, Biller, Schindel, Winter & Mulcahy, LLP",
+  description:
+    "South Natick Law provides experienced legal counsel in real estate, estate planning, probate, domestic relations, employment law, elder law, and health care law.",
+  url: "https://southnaticklaw.com",
+  telephone: "(508) 651-1000",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "South Natick",
+    addressRegion: "MA",
+    addressCountry: "US",
+  },
+  areaServed: "MetroWest Massachusetts",
+  priceRange: "$$",
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
       <header id="home">
         <section className="hero" id="hero">
           <div className="container">

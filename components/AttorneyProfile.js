@@ -4,8 +4,28 @@ import { getAttorneyBioParagraphs } from "../lib/site-data";
 export default function AttorneyProfile({ attorney }) {
   const bioParagraphs = getAttorneyBioParagraphs(attorney.slug);
 
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: attorney.pageTitle,
+    jobTitle: attorney.subtitle,
+    telephone: attorney.phone,
+    email: attorney.email,
+    image: `https://southnaticklaw.com${attorney.image}`,
+    url: `https://southnaticklaw.com/${attorney.slug}`,
+    worksFor: {
+      "@type": "LegalService",
+      name: "South Natick Law",
+      url: "https://southnaticklaw.com",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <section className="section-padding">
         <div className="container">
           <div className="row">
