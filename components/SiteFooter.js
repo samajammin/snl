@@ -13,7 +13,7 @@ export default function SiteFooter() {
   return (
     <footer className="site-footer">
       <span>
-        © {new Date().getFullYear()} Richards, Biller, Schindel, Winter &amp;
+        © {new Date().getFullYear()} · Richards, Biller, Schindel, Winter &amp;
         Mulcahy, LLP
       </span>
       <div className="social">
