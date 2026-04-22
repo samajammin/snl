@@ -31,10 +31,10 @@ npm run dev
 
 ## Project structure
 
-- `app/` — routes (one directory per public URL)
-- `components/` — shared UI: Navbar, FooterContact, Cta, AttorneyProfile
-- `lib/site-data.js` — all site content: attorney bios, practice areas, page copy
-- `public/assets/` — static CSS, JS, images, and fonts
+- `app/` — routes (one directory per public URL), global stylesheet (`snl.css`), and the SVG favicon (`icon.svg`)
+- `components/` — shared UI: `SiteHeader`, `SiteFooter`, `ContactBand`, `ContactForm`, `AttorneyProfile`, `AopIcon`
+- `lib/site-data.js` — all site content: firm info, attorney bios, practice areas, page copy
+- `public/assets/img/` — photography (attorneys, office, library)
 
 ## Environment variables
 
