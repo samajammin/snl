@@ -7,10 +7,6 @@ const socialLinks = [
     href: "https://www.facebook.com/southnaticklaw",
     label: "Facebook",
   },
-  {
-    href: "http://www.yelp.com/biz/south-natick-law-south-natick",
-    label: "Yelp",
-  },
 ];
 
 export default function SiteFooter() {

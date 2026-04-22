@@ -42,6 +42,19 @@ body {
   line-height: 1.6;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+main > .contact-layout:last-child {
+  flex-grow: 1;
 }
 
 body.menu-open {
@@ -903,10 +916,10 @@ h4 {
   gap: 40px;
   align-items: center;
   padding: 48px;
-  background: var(--bg-cream);
+  background: #fff;
 }
 .team-row:nth-of-type(even) {
-  background: #fff;
+  background: var(--bg-cream);
 }
 .team-portrait {
   width: 160px;
@@ -1435,10 +1448,14 @@ h4 {
 .office { --bleed: var(--slate); }
 .atty-hero { --bleed: var(--slate-nav); }
 
-/* Team rows: cream rows blend into body bg, white rows need extension */
-.team-row:nth-of-type(even) {
+/* Team rows: cream rows blend into body bg; white (odd) rows need extension */
+.team-row {
   box-shadow: 0 0 0 100vmax #fff;
   clip-path: inset(0 -100vmax);
+}
+.team-row:nth-of-type(even) {
+  box-shadow: none;
+  clip-path: none;
 }
 
 /* Contact layout: extend the dark side panel rightward past the cap */
