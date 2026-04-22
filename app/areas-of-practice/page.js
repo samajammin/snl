@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import AopIcon from "../../components/AopIcon";
+import ContactBand from "../../components/ContactBand";
 import { aopAreas, aopPage } from "../../lib/site-data";
 
 export const metadata = {
@@ -49,6 +50,8 @@ export default function AreasOfPracticePage() {
           ))}
         </div>
       </section>
+
+      <ContactBand />
     </>
   );
 }

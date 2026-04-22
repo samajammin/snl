@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import ContactBand from "./ContactBand";
+
 export default function AttorneyProfile({ attorney }) {
   const personJsonLd = {
     "@context": "https://schema.org",
@@ -92,6 +94,8 @@ export default function AttorneyProfile({ attorney }) {
           </div>
         </aside>
       </section>
+
+      <ContactBand />
     </>
   );
 }

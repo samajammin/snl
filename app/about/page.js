@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import ContactBand from "../../components/ContactBand";
 import { aboutPage, aboutTeam, firmInfo } from "../../lib/site-data";
 
 export const metadata = {
@@ -116,6 +117,8 @@ export default function AboutPage() {
           </article>
         ))}
       </section>
+
+      <ContactBand />
     </>
   );
 }
