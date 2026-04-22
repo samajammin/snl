@@ -1,16 +1,15 @@
+import Link from "next/link";
+
 export default function NotFound() {
   return (
-    <section className="section-padding">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12 text-center" id="arrow-head-row">
-            <h1>Page Not Found</h1>
-            <h4>It appears there&apos;s nothing here.</h4>
-            <a href="/" className="learn-more-btn text-center">
-              Return to home
-            </a>
-          </div>
-        </div>
+    <section className="contact-hero" style={{ paddingBottom: 96 }}>
+      <div className="eyebrow">404</div>
+      <h1>Page not found.</h1>
+      <p>It appears there&apos;s nothing here.</p>
+      <div style={{ marginTop: 40 }}>
+        <Link href="/" className="btn-ghost-dark">
+          Return to home
+        </Link>
       </div>
     </section>
   );

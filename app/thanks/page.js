@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "Thanks | South Natick Law",
   robots: { index: false, follow: false },
@@ -5,22 +7,18 @@ export const metadata = {
 
 export default function ThanksPage() {
   return (
-    <section className="section-padding">
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12 text-center">
-            <h2 className="arrow">Contact South Natick Law</h2>
-          </div>
-        </div>
-        <div className="row">
-          <br />
-          <div className="col-sm-12 text-center alert-success">
-            <p>
-              Thank you for your inquiry! One of our attorneys will be in touch
-              with you within 48 hours.
-            </p>
-          </div>
-        </div>
+    <section className="contact-hero" style={{ paddingBottom: 96 }}>
+      <div className="eyebrow">Message received</div>
+      <h1>Thank you.</h1>
+      <p>
+        One of our attorneys will be in touch with you within one business day.
+        If your matter is urgent, please call us at{" "}
+        <a href="tel:+15086511000">(508) 651-1000</a>.
+      </p>
+      <div style={{ marginTop: 40 }}>
+        <Link href="/" className="btn-ghost-dark">
+          Back to Home
+        </Link>
       </div>
     </section>
   );

@@ -10,5 +10,6 @@ export default function sitemap() {
     { url: `${baseUrl}/richard-biller`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.7 },
     { url: `${baseUrl}/caren-schindel`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.7 },
     { url: `${baseUrl}/kimberly-winter`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.7 },
+    { url: `${baseUrl}/alex-mulcahy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.7 },
   ];
 }

@@ -1,8 +1,25 @@
-import Script from "next/script";
+import { Playfair_Display, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
-import FooterContact from "../components/FooterContact";
-import Navbar from "../components/Navbar";
+import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
+
+import "./snl.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 const siteTitle = "South Natick Law | MetroWest Attorneys";
 const siteDescription =
@@ -37,52 +54,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Varela+Round"
-          rel="stylesheet"
-          type="text/css"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,700"
-          rel="stylesheet"
-          type="text/css"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Roboto"
-          rel="stylesheet"
-          type="text/css"
-        />
-        <link
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-          rel="stylesheet"
-        />
-        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="/assets/css/flexslider.css" rel="stylesheet" />
-        <link href="/assets/css/styles.css" rel="stylesheet" />
-        <link href="/assets/css/custom.css" rel="stylesheet" />
-        <link href="/assets/css/queries.css" rel="stylesheet" />
-        <link href="/assets/css/animate.css" rel="stylesheet" />
-        <link rel="shortcut icon" href="/assets/img/favicon.ico" />
-      </head>
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body id="top">
-        <Navbar />
-        {children}
-        <FooterContact />
-        <Script
-          src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
-          strategy="beforeInteractive"
-        />
-        <Script src="/assets/js/waypoints.min.js" strategy="afterInteractive" />
-        <Script src="/assets/js/bootstrap.min.js" strategy="afterInteractive" />
-        <Script src="/assets/js/scripts.js" strategy="afterInteractive" />
-        <Script
-          src="/assets/js/jquery.flexslider.js"
-          strategy="afterInteractive"
-        />
-        <Script src="/assets/js/modernizr.js" strategy="afterInteractive" />
+        <SiteHeader />
+        <main>{children}</main>
+        <SiteFooter />
         <Analytics />
       </body>
     </html>
