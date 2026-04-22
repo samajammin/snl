@@ -119,7 +119,7 @@ export default function HomePage() {
       <section className="strip">
         <div className="strip-bg">
           <Image
-            src="/assets/img/south-natick-law-office.jpg"
+            src="/assets/img/South_Natick_Law_home.jpg"
             alt=""
             fill
             sizes="100vw"

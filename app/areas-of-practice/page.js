@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import AopIcon from "../../components/AopIcon";
@@ -49,6 +50,21 @@ export default function AreasOfPracticePage() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="strip">
+        <div className="strip-bg">
+          <Image
+            src="/assets/img/south-natick-law-room.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+        <div className="eyebrow on-dark">Our Approach</div>
+        <div className="big">Research-first counsel.</div>
+        <div className="sub">thorough · practical · local</div>
       </section>
 
       <ContactBand />
