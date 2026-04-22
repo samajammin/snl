@@ -46,10 +46,6 @@ export const metadata = {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: "/assets/img/favicon.ico",
-    shortcut: "/assets/img/favicon.ico",
-  },
 };
 
 export default function RootLayout({ children }) {
