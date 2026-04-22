@@ -48,40 +48,6 @@ export default function AboutPage() {
         ))}
       </div>
 
-      <section className="team-section">
-        <div className="team-head">
-          <div className="eyebrow" style={{ marginBottom: "12px" }}>
-            Our Team
-          </div>
-          <h2>The attorneys.</h2>
-          <p className="sub">
-            Each attorney has their own areas of specialization.
-          </p>
-        </div>
-        {aboutTeam.map((person) => (
-          <article className="team-row" key={person.slug}>
-            <Link href={`/${person.slug}`} className="team-portrait">
-              <Image
-                src={person.image}
-                alt={person.imageAlt}
-                width={320}
-                height={320}
-                sizes="160px"
-              />
-            </Link>
-            <div>
-              <div className="role">{person.role}</div>
-              <h3>{person.name}</h3>
-              <p className="bio">{person.summary}</p>
-            </div>
-            <div className="links">
-              <Link href={`/${person.slug}`}>View Profile</Link>
-              <a href={`mailto:${person.email}`}>Email</a>
-            </div>
-          </article>
-        ))}
-      </section>
-
       <section className="office">
         <div className="office-photo">
           <Image
@@ -116,6 +82,40 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="team-section">
+        <div className="team-head">
+          <div className="eyebrow" style={{ marginBottom: "12px" }}>
+            Our Team
+          </div>
+          <h2>The attorneys.</h2>
+          <p className="sub">
+            Each attorney has their own areas of specialization.
+          </p>
+        </div>
+        {aboutTeam.map((person) => (
+          <article className="team-row" key={person.slug}>
+            <Link href={`/${person.slug}`} className="team-portrait">
+              <Image
+                src={person.image}
+                alt={person.imageAlt}
+                width={320}
+                height={320}
+                sizes="160px"
+              />
+            </Link>
+            <div>
+              <div className="role">{person.role}</div>
+              <h3>{person.name}</h3>
+              <p className="bio">{person.summary}</p>
+            </div>
+            <div className="links">
+              <Link href={`/${person.slug}`}>View Profile</Link>
+              <a href={`mailto:${person.email}`}>Email</a>
+            </div>
+          </article>
+        ))}
       </section>
 
       <ContactBand />
