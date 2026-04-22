@@ -906,7 +906,7 @@ h4 {
   background: var(--bg-cream);
 }
 .team-row:nth-of-type(even) {
-  background: var(--bg-sand);
+  background: #fff;
 }
 .team-portrait {
   width: 160px;
@@ -1435,9 +1435,9 @@ h4 {
 .office { --bleed: var(--slate); }
 .atty-hero { --bleed: var(--slate-nav); }
 
-/* Team rows: cream rows blend into body bg, sand rows need extension */
+/* Team rows: cream rows blend into body bg, white rows need extension */
 .team-row:nth-of-type(even) {
-  box-shadow: 0 0 0 100vmax var(--bg-sand);
+  box-shadow: 0 0 0 100vmax #fff;
   clip-path: inset(0 -100vmax);
 }
 
