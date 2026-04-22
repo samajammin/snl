@@ -63,8 +63,8 @@ export default function AreasOfPracticePage() {
           />
         </div>
         <div className="eyebrow on-dark">Our Approach</div>
-        <div className="big">Research-first counsel.</div>
-        <div className="sub">thorough · practical · local</div>
+        <div className="big">Broad practice. Deep attention.</div>
+        <div className="sub">every matter treated with care</div>
       </section>
 
       <ContactBand />
