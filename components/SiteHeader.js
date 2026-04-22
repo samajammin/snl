@@ -35,14 +35,6 @@ export default function SiteHeader() {
 
   return (
     <>
-      <div className="topbar">
-        <span>8E Pleasant Street · Natick, MA</span>
-        <span>
-          Mon–Fri 9am–5pm ·{" "}
-          <a href="tel:+15086511000">(508) 651-1000</a>
-        </span>
-      </div>
-
       <nav className="site-nav" aria-label="Primary">
         <Link href="/" className="brand">
           South Natick Law

@@ -68,10 +68,6 @@ export default async function ContactPage({ searchParams }) {
               9:00 AM – 5:00 PM
             </div>
           </div>
-          {/* TODO: swap patterned placeholder for real Google Maps or Mapbox embed */}
-          <div className="map" aria-hidden="true">
-            <div className="pin" />
-          </div>
         </aside>
       </section>
     </>

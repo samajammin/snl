@@ -164,27 +164,6 @@ h4 {
 }
 
 /* =========================================================
-   Top utility bar
-========================================================= */
-.topbar {
-  background: var(--slate-nav);
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 10px 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.topbar a {
-  color: rgba(255, 255, 255, 0.85);
-}
-.topbar a:hover {
-  color: #fff;
-}
-
-/* =========================================================
    Desktop nav
 ========================================================= */
 .site-nav {
@@ -1407,37 +1386,6 @@ h4 {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.78);
 }
-.contact-side .map {
-  margin-top: 28px;
-  height: 180px;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(150, 119, 98, 0.2) 0%,
-      rgba(150, 119, 98, 0) 100%
-    ),
-    repeating-linear-gradient(
-      45deg,
-      var(--slate) 0,
-      var(--slate) 16px,
-      var(--slate-nav) 16px,
-      var(--slate-nav) 32px
-    );
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.contact-side .map .pin {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--bronze-light);
-  box-shadow: 0 0 0 6px rgba(201, 166, 139, 0.3);
-  transform: translate(-50%, -50%);
-}
-
 /* =========================================================
    MOBILE — ≤ 768px
 ========================================================= */
@@ -1445,10 +1393,6 @@ h4 {
   body {
     font-size: 14px;
     overflow-x: hidden;
-  }
-
-  .topbar {
-    display: none;
   }
 
   .site-nav {
@@ -1892,8 +1836,5 @@ h4 {
   }
   .contact-side h2 {
     font-size: 26px;
-  }
-  .contact-side .map {
-    height: 150px;
   }
 }
