@@ -2,13 +2,13 @@
   <rect width="64" height="64" fill="#2a333d"/>
   <text
     x="32"
-    y="46"
+    y="44"
     font-family="Georgia, 'Times New Roman', serif"
-    font-size="40"
+    font-size="34"
     font-weight="400"
     fill="#f4f1ea"
     text-anchor="middle"
-    letter-spacing="-1"
-  >SN</text>
-  <rect x="24" y="52" width="16" height="2" fill="#c9a68b"/>
+    letter-spacing="-0.5"
+  >SNL</text>
+  <rect x="0" y="56" width="64" height="4" fill="#c9a68b"/>
 </svg>
