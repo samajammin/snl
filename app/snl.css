@@ -20,6 +20,7 @@
   --hairline-dark: rgba(201, 166, 139, 0.2);
   --text-on-dark: #f4f1ea;
   --text-on-dark-dim: rgba(244, 241, 234, 0.78);
+  --content-max: 1600px;
 }
 
 *,
@@ -789,7 +790,8 @@ h4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   background: var(--hairline);
-  margin: 0 48px;
+  background-clip: content-box;
+  padding-inline: 48px;
 }
 .about-meta .m {
   background: var(--bg-cream);
@@ -1387,6 +1389,65 @@ h4 {
   color: rgba(255, 255, 255, 0.78);
 }
 /* =========================================================
+   Content cap — keep sections from sprawling on ultra-wide screens
+   while preserving full-bleed backgrounds for distinct-bg sections.
+========================================================= */
+.hero,
+.home-intro,
+.quick,
+.attys,
+.values,
+.contact-band,
+.about-hero,
+.about-meta,
+.office,
+.team-head,
+.team-row,
+.aop-hero,
+.aop-grid,
+.atty-hero,
+.atty-body,
+.contact-hero,
+.contact-layout {
+  max-width: var(--content-max);
+  margin-inline: auto;
+}
+
+/* Extend distinct-color backgrounds past the cap to the viewport edges
+   using the box-shadow + clip-path trick. */
+.quick,
+.values,
+.contact-band,
+.about-hero,
+.aop-hero,
+.contact-hero,
+.office,
+.atty-hero {
+  box-shadow: 0 0 0 100vmax var(--bleed);
+  clip-path: inset(0 -100vmax);
+}
+.quick { --bleed: var(--slate-deep); }
+.values { --bleed: var(--slate-nav); }
+.contact-band { --bleed: #fff; }
+.about-hero { --bleed: #fff; }
+.aop-hero { --bleed: #fff; }
+.contact-hero { --bleed: #fff; }
+.office { --bleed: var(--slate); }
+.atty-hero { --bleed: var(--slate-nav); }
+
+/* Team rows: cream rows blend into body bg, sand rows need extension */
+.team-row:nth-of-type(even) {
+  box-shadow: 0 0 0 100vmax var(--bg-sand);
+  clip-path: inset(0 -100vmax);
+}
+
+/* Contact layout: extend the dark side panel rightward past the cap */
+.contact-side {
+  box-shadow: 0 0 0 100vmax var(--slate-nav);
+  clip-path: inset(0 -100vmax 0 0);
+}
+
+/* =========================================================
    MOBILE — ≤ 768px
 ========================================================= */
 @media (max-width: 768px) {
@@ -1698,7 +1759,7 @@ h4 {
   }
   .about-meta {
     grid-template-columns: 1fr 1fr;
-    margin: 0;
+    padding-inline: 0;
   }
   .about-meta .m {
     padding: 24px 18px;
