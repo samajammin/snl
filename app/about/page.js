@@ -94,32 +94,30 @@ export default function AboutPage() {
             Each attorney has their own areas of specialization.
           </p>
         </div>
-        {aboutTeam.map((person) => (
-          <article className="team-row" key={person.slug}>
-            <Link
-              href={`/${person.slug}`}
-              className="team-portrait"
-              style={{ backgroundColor: person.photoBg }}
-            >
-              <Image
-                src={person.image}
-                alt={person.imageAlt}
-                width={400}
-                height={400}
-                sizes="(max-width: 768px) 240px, 200px"
-              />
-            </Link>
-            <div>
-              <div className="role">{person.role}</div>
-              <h3>{person.name}</h3>
-              <p className="bio">{person.summary}</p>
-            </div>
-            <div className="links">
-              <Link href={`/${person.slug}`}>View Profile →</Link>
-              <a href={`mailto:${person.email}`}>Email →</a>
-            </div>
-          </article>
-        ))}
+        <div className="atty-grid">
+          {aboutTeam.map((person) => (
+            <article className="atty" key={person.slug}>
+              <Link href={`/${person.slug}`} className="atty-photo">
+                <Image
+                  src={person.image}
+                  alt={person.imageAlt}
+                  width={480}
+                  height={480}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </Link>
+              <div className="atty-card-body">
+                <div className="role">{person.role}</div>
+                <h3>{person.name}</h3>
+                <div className="atty-rule" />
+                <p className="bio">{person.summary}</p>
+                <Link href={`/${person.slug}`} className="meet">
+                  View Profile →
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <ContactBand />
