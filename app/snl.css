@@ -283,6 +283,9 @@ h4 {
   color: var(--text-on-dark);
   position: relative;
 }
+.hero .copy > * {
+  max-width: 560px;
+}
 .hero .copy::after {
   content: "";
   position: absolute;
@@ -1351,7 +1354,6 @@ h4 {
    Content cap — keep sections from sprawling on ultra-wide screens
    while preserving full-bleed backgrounds for distinct-bg sections.
 ========================================================= */
-.hero,
 .home-intro,
 .quick,
 .attys,
