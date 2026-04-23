@@ -20,6 +20,8 @@ export default function ContactForm({ hasError }) {
   }, [initialArea]);
 
   const selectedArea = areaSlug ? findAopArea(areaSlug) : null;
+  const prefilledArea =
+    initialArea && areaSlug === initialArea ? selectedArea : null;
   const textareaPlaceholder = selectedArea
     ? `Tell us a little about your ${selectedArea.title.toLowerCase()} matter...`
     : "Tell us a little about your situation...";
@@ -35,9 +37,9 @@ export default function ContactForm({ hasError }) {
         </div>
       ) : null}
 
-      {selectedArea ? (
+      {prefilledArea ? (
         <div className="prefill-badge">
-          From Areas of Practice → <strong>{selectedArea.title}</strong>
+          From Areas of Practice → <strong>{prefilledArea.title}</strong>
           <button
             type="button"
             className="clear"
