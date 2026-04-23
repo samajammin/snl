@@ -173,7 +173,7 @@ export default function HomePage() {
 
       <section className="values">
         <div className="values-head">
-          <div className="eyebrow on-dark">Our Pillars</div>
+          <div className="eyebrow on-dark">Our Values</div>
           <h2>Four pillars of practice.</h2>
           <p>
             Over the years we have developed four pillars of practice that
