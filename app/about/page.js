@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import ContactBand from "../../components/ContactBand";
-import { aboutPage, aboutTeam, firmInfo } from "../../lib/site-data";
+import { aboutPage, attorneys, firmInfo } from "../../lib/site-data";
 
 export const metadata = {
   title: "About | South Natick Law",
@@ -86,16 +86,14 @@ export default function AboutPage() {
 
       <section className="team-section">
         <div className="team-head">
-          <div className="eyebrow" style={{ marginBottom: "12px" }}>
-            Our Team
-          </div>
+          <div className="eyebrow">Our Team</div>
           <h2>The attorneys.</h2>
           <p className="sub">
             Each attorney has their own areas of specialization.
           </p>
         </div>
         <div className="atty-grid">
-          {aboutTeam.map((person) => (
+          {Object.values(attorneys).map((person) => (
             <article className="atty" key={person.slug}>
               <Link href={`/${person.slug}`} className="atty-photo">
                 <Image
@@ -107,7 +105,7 @@ export default function AboutPage() {
                 />
               </Link>
               <div className="atty-card-body">
-                <div className="role">{person.role}</div>
+                <div className="role">{person.roleEyebrow}</div>
                 <h3>{person.name}</h3>
                 <div className="atty-rule" />
                 <p className="bio">{person.summary}</p>

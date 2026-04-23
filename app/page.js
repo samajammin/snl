@@ -3,8 +3,9 @@ import Link from "next/link";
 
 import ContactBand from "../components/ContactBand";
 import {
+  attorneys,
   firmInfo,
-  homeAttorneyCards,
+  homeAttorneySlugs,
   homeQuickCards,
   homeStats,
   homeValues,
@@ -142,32 +143,36 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="atty-grid">
-          {homeAttorneyCards.map((a) => (
-            <article className="atty" key={a.slug}>
-              <Link href={a.href} className="atty-photo">
-                <Image
-                  src={a.image}
-                  alt={a.imageAlt}
-                  width={480}
-                  height={480}
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </Link>
-              <div className="atty-card-body">
-                <div className="role">{a.role}</div>
-                <h3>{a.name}</h3>
-                <div className="atty-rule" />
-                <div className="prac">
-                  {a.practices.map((p) => (
-                    <span key={p}>{p}</span>
-                  ))}
-                </div>
-                <Link href={a.href} className="meet">
-                  Meet {a.firstName} →
+          {homeAttorneySlugs.map((slug) => {
+            const a = attorneys[slug];
+            const href = `/${slug}`;
+            return (
+              <article className="atty" key={slug}>
+                <Link href={href} className="atty-photo">
+                  <Image
+                    src={a.image}
+                    alt={a.imageAlt}
+                    width={480}
+                    height={480}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </Link>
-              </div>
-            </article>
-          ))}
+                <div className="atty-card-body">
+                  <div className="role">{a.role}</div>
+                  <h3>{a.name}</h3>
+                  <div className="atty-rule" />
+                  <div className="prac">
+                    {a.practices.map((p) => (
+                      <span key={p}>{p}</span>
+                    ))}
+                  </div>
+                  <Link href={href} className="meet">
+                    Meet {a.firstName} →
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
