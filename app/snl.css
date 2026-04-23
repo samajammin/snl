@@ -20,7 +20,7 @@
   --hairline-dark: rgba(201, 166, 139, 0.2);
   --text-on-dark: #f4f1ea;
   --text-on-dark-dim: rgba(244, 241, 234, 0.78);
-  --content-max: 1920px;
+  --content-max: 1600px;
 }
 
 *,
@@ -282,9 +282,6 @@ h4 {
   background: var(--slate);
   color: var(--text-on-dark);
   position: relative;
-}
-.hero .copy > * {
-  max-width: 560px;
 }
 .hero .copy::after {
   content: "";
