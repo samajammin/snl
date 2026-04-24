@@ -107,8 +107,8 @@ export default function ContactForm({ hasError }) {
           placeholder={textareaPlaceholder}
           required
         />
-        <div className="honeypot" aria-hidden="true">
-          <label htmlFor="websiteInput">Leave this field blank</label>
+        <div className="sr-only" aria-hidden="true">
+          <label htmlFor="websiteInput">Your website</label>
           <input
             type="text"
             name="website"

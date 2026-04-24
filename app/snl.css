@@ -1293,7 +1293,7 @@ h4 {
   margin-top: 16px;
   line-height: 1.7;
 }
-.x-form .honeypot {
+.x-form .sr-only {
   position: absolute;
   left: -9999px;
   width: 1px;
