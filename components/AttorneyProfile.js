@@ -1,9 +1,8 @@
-import Cta from "./Cta";
-import { getAttorneyBioParagraphs } from "../lib/site-data";
+import Image from "next/image";
+
+import ContactBand from "./ContactBand";
 
 export default function AttorneyProfile({ attorney }) {
-  const bioParagraphs = getAttorneyBioParagraphs(attorney.slug);
-
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -26,62 +25,77 @@ export default function AttorneyProfile({ attorney }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
-      <section className="section-padding">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <h1 className="page-header">
-                {attorney.pageTitle} <small>{attorney.subtitle}</small>
-              </h1>
+
+      <section className="atty-hero">
+        <div className="portrait">
+          <Image
+            src={attorney.image}
+            alt={attorney.imageAlt}
+            width={880}
+            height={1080}
+            priority
+            sizes="(max-width: 768px) 100vw, 440px"
+          />
+        </div>
+        <div>
+          <div className="eyebrow">{attorney.roleEyebrow}</div>
+          <h1>{attorney.name}</h1>
+          <div className="atty-meta">
+            {attorney.meta.map((m) => (
+              <div className="row" key={m.lbl}>
+                <span className="lbl">{m.lbl}</span>
+                <span>{m.val}</span>
+              </div>
+            ))}
+            <div className="row">
+              <span className="lbl">Phone</span>
+              <span>{attorney.phone}</span>
             </div>
-            <div className="col-md-4">
-              <img
-                className="img-responsive img-rounded"
-                src={attorney.image}
-                alt={attorney.imageAlt}
-              />
-              <br />
-              <h2>Contact Details</h2>
-              <p>
-                <abbr title="Phone">
-                  <i className="fa fa-phone"></i>
-                </abbr>{" "}
-                : {attorney.phone}
-              </p>
-              <p>
-                <abbr title="Email">
-                  <i className="fa fa-envelope-o"></i>
-                </abbr>{" "}
-                : <a href={`mailto:${attorney.email}`}>{attorney.email}</a>
-              </p>
-              <p>
-                <abbr title="Hours">
-                  <i className="fa fa-clock-o"></i>
-                </abbr>{" "}
-                : Monday - Friday: 9:00 AM to 5:00 PM
-              </p>
-              {attorney.profileSocials.length ? (
-                <ul className="list-unstyled list-inline list-social-icons">
-                  {attorney.profileSocials.map((social) => (
-                    <li key={`${attorney.slug}-${social.iconClass}`}>
-                      <a href={social.href} target="_blank" rel="noreferrer">
-                        <i className={`fa ${social.iconClass}`}></i>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-            </div>
-            <div className="col-md-8">
-              {bioParagraphs.map((paragraph, index) => (
-                <p key={`${attorney.slug}-${index}`}>{paragraph}</p>
-              ))}
+            <div className="row">
+              <span className="lbl">Email</span>
+              <span>
+                <a href={`mailto:${attorney.email}`}>{attorney.email}</a>
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      <Cta />
+      <section className="atty-body">
+        <div className="bio">
+          {attorney.bioParagraphs.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+        <aside className="atty-facts">
+          <div className="sect">
+            <h4>Practice Areas</h4>
+            <ul>
+              {attorney.practiceAreas.map((p) => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="sect">
+            <h4>Education</h4>
+            <ul>
+              {attorney.education.map((e) => (
+                <li key={e}>{e}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="sect">
+            <h4>Memberships</h4>
+            <ul>
+              {attorney.memberships.map((m) => (
+                <li key={m}>{m}</li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <ContactBand />
     </>
   );
 }

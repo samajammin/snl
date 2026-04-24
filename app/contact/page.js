@@ -1,3 +1,8 @@
+import { Suspense } from "react";
+
+import ContactForm from "../../components/ContactForm";
+import { firmInfo } from "../../lib/site-data";
+
 export const metadata = {
   title: "Contact | South Natick Law",
   description:
@@ -15,106 +20,56 @@ export default async function ContactPage({ searchParams }) {
   const hasError = params?.error === "1";
 
   return (
-    <section className="section-padding">
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12 text-center">
-            <h2 className="arrow">Contact South Natick Law</h2>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-12 text-center">
-            <p>
-              Have a question? We&apos;re happy to discuss the legal issues and
-              available options in your case.
+    <>
+      <section className="contact-hero">
+        <div className="eyebrow">Get in Touch</div>
+        <h1>Have a question? Let&apos;s talk.</h1>
+        <p>
+          We&apos;re happy to discuss the legal issues and available options in
+          your case. Call us today or send a note — one of our attorneys will
+          get back to you within one business day.
+        </p>
+      </section>
+
+      <section className="contact-layout">
+        <Suspense fallback={<div className="contact-form-wrap" />}>
+          <ContactForm hasError={hasError} />
+        </Suspense>
+
+        <aside className="contact-side">
+          <div className="eyebrow">Visit the office</div>
+          <h2>South Natick Law</h2>
+          <div className="item">
+            <div className="lbl">Address</div>
+            <div className="val">
+              {firmInfo.addressLine}
               <br />
-              Call us today or fill out the form below to connect directly with
-              one of <a href="/about">our professional attorneys</a>
-            </p>
-          </div>
-        </div>
-        {hasError ? (
-          <div className="row">
-            <div className="col-sm-offset-2 col-sm-8">
-              <div className="alert alert-danger">
-                We couldn&apos;t submit your message just now. Please try again or
-                call us at (508) 651-1000.
-              </div>
+              {firmInfo.addressCity}, {firmInfo.addressState}{" "}
+              {firmInfo.addressZip}
             </div>
           </div>
-        ) : null}
-        <div className="row">
-          <div className="col-sm-offset-2 col-sm-8">
-            <form action="/api/contact" method="POST">
-              <div className="row">
-                <div className="form-group col-sm-12">
-                  <label htmlFor="nameInput">Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    className="form-control"
-                    id="nameInput"
-                    placeholder="Your name..."
-                    required
-                  />
-                </div>
-                <div className="form-group col-sm-12">
-                  <label htmlFor="emailInput">Email address</label>
-                  <input
-                    type="email"
-                    name="_replyto"
-                    className="form-control"
-                    id="emailInput"
-                    aria-describedby="emailHelp"
-                    placeholder="Your email..."
-                    required
-                  />
-                </div>
-              </div>
-              <div className="form-group">
-                <label htmlFor="detailsInput">Message</label>
-                <textarea
-                  id="detailsInput"
-                  name="message"
-                  rows="8"
-                  cols="80"
-                  className="form-control"
-                  placeholder="Anything else you'd like us to know..."
-                  required
-                ></textarea>
-              </div>
-              <div
-                aria-hidden="true"
-                style={{
-                  position: "absolute",
-                  left: "-9999px",
-                  width: "1px",
-                  height: "1px",
-                  overflow: "hidden",
-                }}
-              >
-                <label htmlFor="websiteInput">
-                  Leave this field blank
-                </label>
-                <input
-                  type="text"
-                  name="website"
-                  id="websiteInput"
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-              </div>
-              <p className="text-muted" style={{ fontSize: "0.9em" }}>
-                This form is for prospective clients only. No solicitations,
-                vendor pitches, or marketing outreach, please.
-              </p>
-              <button type="submit" className="learn-more-btn">
-                Submit
-              </button>
-            </form>
+          <div className="item">
+            <div className="lbl">Phone</div>
+            <div className="val">
+              <a href={`tel:${firmInfo.phoneTel}`}>{firmInfo.phoneDisplay}</a>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+          <div className="item">
+            <div className="lbl">Email</div>
+            <div className="val">
+              <a href={`mailto:${firmInfo.email}`}>{firmInfo.email}</a>
+            </div>
+          </div>
+          <div className="item">
+            <div className="lbl">Hours</div>
+            <div className="hours">
+              Monday – Friday
+              <br />
+              9:00 AM – 5:00 PM
+            </div>
+          </div>
+        </aside>
+      </section>
+    </>
   );
 }

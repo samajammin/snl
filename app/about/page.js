@@ -1,5 +1,8 @@
-import Cta from "../../components/Cta";
-import { aboutPage, aboutTeamCards } from "../../lib/site-data";
+import Image from "next/image";
+import Link from "next/link";
+
+import ContactBand from "../../components/ContactBand";
+import { aboutPage, attorneys, firmInfo } from "../../lib/site-data";
 
 export const metadata = {
   title: "About | South Natick Law",
@@ -13,70 +16,109 @@ export const metadata = {
   },
 };
 
+function renderTitleWithEmphasis(title, emphasis) {
+  if (!emphasis || !title.includes(emphasis)) return title;
+  const parts = title.split(emphasis);
+  return (
+    <>
+      {parts[0]}
+      <em>{emphasis}</em>
+      {parts[1]}
+    </>
+  );
+}
+
 export default function AboutPage() {
   return (
     <>
-      <section className="team text-center section-padding" id="team">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <h1 className="arrow">{aboutPage.title}</h1>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm-12">
-              <p>{aboutPage.intro}</p>
-            </div>
-          </div>
+      <section className="about-hero">
+        <div>
+          <div className="eyebrow">{aboutPage.eyebrow}</div>
+          <h1>{renderTitleWithEmphasis(aboutPage.title, aboutPage.emphasis)}</h1>
+        </div>
+        <p>{aboutPage.intro}</p>
+      </section>
 
-          {aboutTeamCards.map((row, rowIndex) => (
-            <div className="row" id="team-row" key={`row-${rowIndex}`}>
-              {row.map((person) => (
-                <div
-                  className={`col-md-6 wp5${person.delayClass ? ` ${person.delayClass}` : ""}`}
-                  key={person.name}
-                >
-                  {person.href ? (
-                    <a href={person.href}>
-                      <img
-                        className="img-thumbnail img-responsive center-block"
-                        src={person.image}
-                        alt={person.imageAlt}
-                      />
-                    </a>
-                  ) : (
-                    <img
-                      className="img-thumbnail img-responsive center-block"
-                      src={person.image}
-                      alt={person.imageAlt}
-                    />
-                  )}
-                  <h2>{person.name}</h2>
-                  <p>{person.summary}</p>
-                  <div className="social">
-                    <ul className="social-buttons">
-                      {person.socials.map((social) => (
-                        <li key={`${person.name}-${social.iconClass}`}>
-                          <a
-                            href={social.href}
-                            target={social.external ? "_blank" : undefined}
-                            rel={social.external ? "noreferrer" : undefined}
-                            className="social-btn"
-                          >
-                            <i className={`fa ${social.iconClass}`}></i>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
+      <div className="about-meta">
+        {aboutPage.meta.map((m) => (
+          <div className="m" key={m.lbl}>
+            <div className="big">{m.big}</div>
+            <div className="lbl">{m.lbl}</div>
+          </div>
+        ))}
+      </div>
+
+      <section className="office">
+        <div className="office-photo">
+          <Image
+            src={aboutPage.office.photo}
+            alt={aboutPage.office.photoAlt}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+        <div className="office-copy">
+          <div className="eyebrow">{aboutPage.office.eyebrow}</div>
+          <h2>{aboutPage.office.title}</h2>
+          <p>{aboutPage.office.body}</p>
+          <div className="office-facts">
+            <div>
+              <div className="lbl">Address</div>
+              <div className="val">
+                {firmInfo.addressLine}
+                <br />
+                {firmInfo.addressCity}, {firmInfo.addressState}{" "}
+                {firmInfo.addressZip}
+              </div>
             </div>
+            <div>
+              <div className="lbl">Hours</div>
+              <div className="val">
+                Monday – Friday
+                <br />
+                9:00 AM – 5:00 PM
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="team-section">
+        <div className="team-head">
+          <div className="eyebrow">Our Team</div>
+          <h2>The attorneys.</h2>
+          <p className="sub">
+            Each attorney has their own areas of specialization.
+          </p>
+        </div>
+        <div className="atty-grid">
+          {Object.values(attorneys).map((person) => (
+            <article className="atty" key={person.slug}>
+              <Link href={`/${person.slug}`} className="atty-photo">
+                <Image
+                  src={person.image}
+                  alt={person.imageAlt}
+                  width={480}
+                  height={480}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </Link>
+              <div className="atty-card-body">
+                <div className="role">{person.roleEyebrow}</div>
+                <h3>{person.name}</h3>
+                <div className="atty-rule" />
+                <p className="bio">{person.summary}</p>
+                <Link href={`/${person.slug}`} className="meet">
+                  View Profile →
+                </Link>
+              </div>
+            </article>
           ))}
         </div>
       </section>
 
-      <Cta />
+      <ContactBand />
     </>
   );
 }
