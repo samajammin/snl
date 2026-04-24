@@ -107,10 +107,24 @@ export default function ContactForm({ hasError }) {
           placeholder={textareaPlaceholder}
           required
         />
+        <div className="honeypot" aria-hidden="true">
+          <label htmlFor="websiteInput">Leave this field blank</label>
+          <input
+            type="text"
+            name="website"
+            id="websiteInput"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
         <button type="submit">Submit Inquiry</button>
         <p className="disclaimer">
           Submitting this form does not establish an attorney-client
           relationship. Please do not share confidential information.
+        </p>
+        <p className="disclaimer">
+          This form is for prospective clients only. No solicitations, vendor
+          pitches, or marketing outreach, please.
         </p>
       </form>
     </div>

@@ -1290,6 +1290,13 @@ h4 {
   margin-top: 16px;
   line-height: 1.7;
 }
+.x-form .honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 .x-form .alert {
   background: #fdecec;
   border-left: 3px solid #b44;

@@ -11,6 +11,11 @@ export async function POST(request) {
   const phone = String(formData.get("phone") || "").trim();
   const practiceAreaSlug = String(formData.get("practiceArea") || "").trim();
   const message = String(formData.get("message") || "").trim();
+  const honeypot = String(formData.get("website") || "").trim();
+
+  if (honeypot) {
+    return NextResponse.redirect(new URL("/thanks", request.url), 303);
+  }
 
   const practiceAreaTitle = practiceAreaSlug
     ? findAopArea(practiceAreaSlug)?.title || practiceAreaSlug
