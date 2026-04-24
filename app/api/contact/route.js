@@ -8,6 +8,11 @@ export async function POST(request) {
   const name = String(formData.get("name") || "").trim();
   const replyTo = String(formData.get("_replyto") || "").trim();
   const message = String(formData.get("message") || "").trim();
+  const honeypot = String(formData.get("website") || "").trim();
+
+  if (honeypot) {
+    return NextResponse.redirect(new URL("/thanks", request.url), 303);
+  }
 
   try {
     await resend.emails.send({

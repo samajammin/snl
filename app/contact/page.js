@@ -83,6 +83,31 @@ export default async function ContactPage({ searchParams }) {
                   required
                 ></textarea>
               </div>
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  left: "-9999px",
+                  width: "1px",
+                  height: "1px",
+                  overflow: "hidden",
+                }}
+              >
+                <label htmlFor="websiteInput">
+                  Leave this field blank
+                </label>
+                <input
+                  type="text"
+                  name="website"
+                  id="websiteInput"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+              <p className="text-muted" style={{ fontSize: "0.9em" }}>
+                This form is for prospective clients only. No solicitations,
+                vendor pitches, or marketing outreach, please.
+              </p>
               <button type="submit" className="learn-more-btn">
                 Submit
               </button>
