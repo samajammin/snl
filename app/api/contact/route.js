@@ -41,6 +41,7 @@ export async function POST(request) {
         "rbiller@southnaticklaw.com",
         "cschindel@southnaticklaw.com",
         "kwinter@southnaticklaw.com",
+        "amulcahy@southnaticklaw.com",
       ],
       cc: ["sbrichards@gmail.com"],
       replyTo,
