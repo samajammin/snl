@@ -97,7 +97,7 @@ export default function AboutPage() {
             <article className="atty" key={person.slug}>
               <Link href={`/${person.slug}`} className="atty-photo">
                 <Image
-                  src={person.image}
+                  src={person.cardImage || person.image}
                   alt={person.imageAlt}
                   width={480}
                   height={480}

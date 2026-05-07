@@ -150,7 +150,7 @@ export default function HomePage() {
               <article className="atty" key={slug}>
                 <Link href={href} className="atty-photo">
                   <Image
-                    src={a.image}
+                    src={a.cardImage || a.image}
                     alt={a.imageAlt}
                     width={480}
                     height={480}
