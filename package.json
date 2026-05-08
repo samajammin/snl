@@ -19,5 +19,8 @@
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "resend": "^6.12.2"
+  },
+  "overrides": {
+    "postcss": "8.5.10"
   }
 }
