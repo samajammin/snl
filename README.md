@@ -41,3 +41,4 @@ npm run dev
 | Variable | Description |
 |---|---|
 | `RESEND_API_KEY` | API key from resend.com for contact form delivery |
+| `CONTACT_SOLICITATION_TO` | Optional comma-separated quarantine recipients for contact messages that match solicitation filters. Defaults to `sbrichards@gmail.com`. |
