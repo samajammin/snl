@@ -1,11 +1,14 @@
 "use client";
 
+import Script from "next/script";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { aopAreas, findAopArea } from "../lib/site-data";
 
-export default function ContactForm({ hasError }) {
+const TURNSTILE_ACTION = "contact";
+
+export default function ContactForm({ hasError, turnstileSiteKey }) {
   const searchParams = useSearchParams();
   const queryArea = searchParams.get("practiceArea");
   const initialArea = useMemo(
@@ -14,10 +17,39 @@ export default function ContactForm({ hasError }) {
   );
 
   const [areaSlug, setAreaSlug] = useState(initialArea);
+  const [turnstileReady, setTurnstileReady] = useState(false);
+  const turnstileRef = useRef(null);
+  const widgetIdRef = useRef(null);
 
   useEffect(() => {
     setAreaSlug(initialArea);
   }, [initialArea]);
+
+  useEffect(() => {
+    if (
+      !turnstileSiteKey ||
+      !turnstileReady ||
+      !turnstileRef.current ||
+      !window.turnstile ||
+      widgetIdRef.current !== null
+    ) {
+      return undefined;
+    }
+
+    widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+      sitekey: turnstileSiteKey,
+      action: TURNSTILE_ACTION,
+      theme: "light",
+      size: "flexible",
+    });
+
+    return () => {
+      if (widgetIdRef.current !== null && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current);
+        widgetIdRef.current = null;
+      }
+    };
+  }, [turnstileReady, turnstileSiteKey]);
 
   const selectedArea = areaSlug ? findAopArea(areaSlug) : null;
   const prefilledArea =
@@ -28,6 +60,13 @@ export default function ContactForm({ hasError }) {
 
   return (
     <div className="contact-form-wrap">
+      {turnstileSiteKey ? (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+          strategy="afterInteractive"
+          onReady={() => setTurnstileReady(true)}
+        />
+      ) : null}
       <h2>Send us a note.</h2>
 
       {hasError ? (
@@ -117,6 +156,11 @@ export default function ContactForm({ hasError }) {
             autoComplete="off"
           />
         </div>
+        {turnstileSiteKey ? (
+          <div className="turnstile-field">
+            <div ref={turnstileRef} />
+          </div>
+        ) : null}
         <button type="submit">Submit Inquiry</button>
         <p className="disclaimer">
           Submitting this form does not establish an attorney-client

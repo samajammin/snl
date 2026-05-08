@@ -15,6 +15,9 @@ const CONTACT_RECIPIENTS = [
 
 const CONTACT_CC = ["sbrichards@gmail.com"];
 const DEFAULT_SOLICITATION_RECIPIENTS = ["sbrichards@gmail.com"];
+const TURNSTILE_ACTION = "contact";
+const TURNSTILE_VERIFY_URL =
+  "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
 function parseEmailList(value, fallback) {
   const emails = String(value || "")
@@ -23,6 +26,69 @@ function parseEmailList(value, fallback) {
     .filter(Boolean);
 
   return emails.length ? emails : fallback;
+}
+
+function isTurnstileConfigured() {
+  return Boolean(
+    process.env.CLOUDFLARE_TURNSTILE_SITE_KEY &&
+      process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY,
+  );
+}
+
+function getClientIp(request) {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+
+  return (
+    request.headers.get("cf-connecting-ip") ||
+    forwardedFor?.split(",")[0]?.trim() ||
+    ""
+  );
+}
+
+async function verifyTurnstileToken(token, request) {
+  if (!isTurnstileConfigured()) {
+    return true;
+  }
+
+  if (!token || token.length > 2048) {
+    return false;
+  }
+
+  const verificationForm = new FormData();
+  verificationForm.append(
+    "secret",
+    process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY,
+  );
+  verificationForm.append("response", token);
+  verificationForm.append("idempotency_key", crypto.randomUUID());
+
+  const clientIp = getClientIp(request);
+  if (clientIp) {
+    verificationForm.append("remoteip", clientIp);
+  }
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+
+  try {
+    const response = await fetch(TURNSTILE_VERIFY_URL, {
+      method: "POST",
+      body: verificationForm,
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      return false;
+    }
+
+    const result = await response.json();
+
+    return result.success === true && result.action === TURNSTILE_ACTION;
+  } catch {
+    return false;
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 export async function POST(request) {
@@ -34,12 +100,20 @@ export async function POST(request) {
   const practiceAreaSlug = String(formData.get("practiceArea") || "").trim();
   const message = String(formData.get("message") || "").trim();
   const honeypot = String(formData.get("website") || "").trim();
+  const turnstileToken = String(
+    formData.get("cf-turnstile-response") || "",
+  ).trim();
 
   if (honeypot) {
     return NextResponse.redirect(new URL("/thanks", request.url), 303);
   }
 
   if (!name || !replyTo || !message) {
+    return NextResponse.redirect(new URL("/contact?error=1", request.url), 303);
+  }
+
+  const turnstileValid = await verifyTurnstileToken(turnstileToken, request);
+  if (!turnstileValid) {
     return NextResponse.redirect(new URL("/contact?error=1", request.url), 303);
   }
 

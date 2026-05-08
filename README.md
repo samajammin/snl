@@ -42,3 +42,5 @@ npm run dev
 |---|---|
 | `RESEND_API_KEY` | API key from resend.com for contact form delivery |
 | `CONTACT_SOLICITATION_TO` | Optional comma-separated quarantine recipients for contact messages that match solicitation filters. Defaults to `sbrichards@gmail.com`. |
+| `CLOUDFLARE_TURNSTILE_SITE_KEY` | Public Cloudflare Turnstile site key for the contact form widget. Turnstile is enabled only when both Turnstile keys are present. |
+| `CLOUDFLARE_TURNSTILE_SECRET_KEY` | Private Cloudflare Turnstile secret key used by `/api/contact` to validate form tokens with Siteverify. |

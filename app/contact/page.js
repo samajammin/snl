@@ -18,6 +18,11 @@ export const metadata = {
 export default async function ContactPage({ searchParams }) {
   const params = await searchParams;
   const hasError = params?.error === "1";
+  const turnstileSiteKey =
+    process.env.CLOUDFLARE_TURNSTILE_SITE_KEY &&
+    process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY
+      ? process.env.CLOUDFLARE_TURNSTILE_SITE_KEY
+      : "";
 
   return (
     <>
@@ -33,7 +38,10 @@ export default async function ContactPage({ searchParams }) {
 
       <section className="contact-layout">
         <Suspense fallback={<div className="contact-form-wrap" />}>
-          <ContactForm hasError={hasError} />
+          <ContactForm
+            hasError={hasError}
+            turnstileSiteKey={turnstileSiteKey}
+          />
         </Suspense>
 
         <aside className="contact-side">
