@@ -1053,18 +1053,31 @@ h4 {
   object-position: center top;
   filter: brightness(1.02);
 }
+.atty-hero > div:last-child {
+  min-width: 0;
+}
 .atty-hero .eyebrow {
   color: var(--bronze-light);
+  display: block;
   margin-bottom: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.atty-hero .eyebrow::before {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
 }
 .atty-hero h1 {
   font-family: var(--font-playfair), Georgia, serif;
   font-weight: 400;
-  font-size: 64px;
+  font-size: clamp(46px, 5vw, 64px);
   margin: 0 0 16px;
   letter-spacing: 0;
   line-height: 1.02;
   color: #fff;
+  text-wrap: balance;
 }
 .atty-hero .atty-meta {
   margin-top: 32px;
@@ -1979,8 +1992,34 @@ h4 {
   .atty-hero .portrait {
     height: 320px;
   }
+  .atty-hero > div:last-child {
+    display: flex;
+    flex-direction: column;
+  }
+  .atty-hero .eyebrow {
+    order: 1;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 16px;
+    font-size: 12px;
+    letter-spacing: 1.6px;
+    line-height: 1.65;
+    overflow-wrap: normal;
+    text-transform: uppercase;
+    color: var(--bronze-light);
+    text-wrap: balance;
+  }
+  .atty-hero .eyebrow::before {
+    display: inline-block;
+  }
   .atty-hero h1 {
-    font-size: 40px;
+    order: 2;
+    font-size: 38px;
+    margin-bottom: 16px;
+  }
+  .atty-hero .atty-meta {
+    order: 3;
+    margin-top: 0;
   }
   .atty-hero .atty-meta .row {
     grid-template-columns: 120px 1fr;
